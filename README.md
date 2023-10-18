@@ -106,7 +106,15 @@ print(type(int(num2)))
 
 ## Concatenación
 
-Se pueden concatenar variables con el signo `+`
+Se pueden concatenar variables con el signo `+` o con `,`
+Sin embargo, también se puede usar f-strings. A partir de Python 3.6, puedes utilizar `f-strings` para formatear cadenas de manera más legible e intuitiva. Con `f-strings`, puedes incluir expresiones dentro de las llaves directamente:
+
+```py
+mensaje = f"Hola, mi nombre es {nombre} y tengo {edad} años."
+print(mensaje)
+```
+
+Las `f-strings` son una forma más moderna y eficiente de formatear cadenas en Python 3.6 y versiones posteriores.
 
 ## SubStrings en Python:
 
@@ -121,3 +129,33 @@ Dónde,
 - `end`: El índice final de la subcadena. El carácter de este índice no está incluido en la subcadena. Si endno está incluido, o si el valor especificado excede la longitud de la cadena, se supone que es igual a la longitud de la cadena de forma predeterminada.
 
 - `step`: Se incluirá cada carácter de "paso" después del carácter actual. El valor predeterminado es 1. Si stepno se incluye, se supone que es igual a 1.
+
+## Entrada de datos en Python
+
+En Python, puedes obtener entrada de datos del usuario utilizando la función `input()`. Esta función permite que el usuario ingrese texto desde el teclado.
+
+```py
+# Solicitar al usuario que ingrese su nombre
+nombre = input("Por favor, ingrese su nombre: ")
+
+# Mostrar un saludo utilizando el nombre ingresado
+print(f"Hola, {nombre}!")
+```
+
+En este ejemplo, `input("Por favor, ingrese su nombre: ")` muestra el mensaje `"Por favor, ingrese su nombre:"` y espera a que el usuario ingrese su nombre. El valor ingresado por el usuario se almacena en la variable nombre, que luego se muestra en un saludo.
+
+Es importante destacar que `input()` siempre devuelve una cadena de texto `(string)`, incluso si el usuario ingresa un número u otro tipo de dato. Si necesitas trabajar con números enteros o de punto flotante, debes convertir la entrada en el tipo de dato adecuado utilizando las funciones `int()` o `float()`.
+
+```py
+# Solicitar al usuario que ingrese su edad
+edad_str = input("Por favor, ingrese su edad: ")
+
+# Convertir la entrada a un número entero
+edad = int(edad_str)
+
+# Realizar cálculos con la edad
+año_de_nacimiento = 2023 - edad
+print(f"Usted nació en el año {año_de_nacimiento}.")
+```
+
+Ten en cuenta que cuando uses `input()`, el programa se detendrá y esperará la entrada del usuario. Para avanzar, el usuario debe presionar "`Enter`". La entrada ingresada por el usuario se almacena como una cadena, por lo que debes realizar conversiones de tipo según sea necesario para trabajar con los datos. También debes validar y manejar posibles errores si la entrada del usuario no coincide con lo que esperas.
