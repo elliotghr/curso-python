@@ -170,7 +170,7 @@ mi_lista = [1, 2, 3, "cuatro", "cinco"]
 
 En este ejemplo, mi_lista es una lista que contiene una mezcla de números enteros y cadenas de texto. Las listas son flexibles y pueden crecer o reducirse en tamaño según sea necesario.
 
-Características clave de las listas en Python:
+### Características clave de las listas en Python:
 
 1. **Ordenadas**: Los elementos de una lista se almacenan en un orden específico y se pueden acceder por su posición (índice).
 
@@ -180,7 +180,7 @@ Características clave de las listas en Python:
 
 1. **Índices** basados en cero: Los elementos en una lista se numeran desde 0. Puedes acceder a elementos individuales mediante su índice.
 
-Ejemplos de operaciones comunes en listas:
+### Ejemplos de operaciones comunes en listas:
 
 - Acceder a elementos por índice: mi_lista[0] devuelve el primer elemento.
 - Modificar elementos: mi_lista[1] = 42 cambia el segundo elemento a 42.
@@ -190,7 +190,7 @@ Ejemplos de operaciones comunes en listas:
 - Rebanado (slicing): mi_lista[1:4] crea una nueva lista que contiene elementos desde el índice 1 al 3 (no inclusivo).
 - Concatenación: otra_lista = [7, 8, 9]; nueva_lista = mi_lista + otra_lista une dos listas en una nueva lista.
 
-## Tuplas en Python (Sets)
+## Tuplas en Python
 
 En Python, una tupla es una estructura de datos similar a una lista, pero con una diferencia clave: las tuplas son inmutables. Esto significa que una vez que se crea una tupla, no puedes modificar su contenido. Las tuplas se definen mediante paréntesis () y los elementos se separan por comas. Aquí tienes un ejemplo de una tupla:
 
@@ -198,7 +198,7 @@ En Python, una tupla es una estructura de datos similar a una lista, pero con un
 mi_tupla = (1, 2, 3, "cuatro", "cinco")
 ```
 
-Características clave de las tuplas en Python:
+### Características clave de las tuplas en Python:
 
 1. **Inmutables**: Una vez que se crea una tupla, no puedes cambiar, agregar o eliminar elementos de ella. Esto las hace adecuadas para datos que no deben modificarse.
 
@@ -208,7 +208,7 @@ Características clave de las tuplas en Python:
 
 1. **Índices basados en cero**: Los elementos en una tupla se numeran desde 0. Puedes acceder a elementos individuales mediante su índice.
 
-Ejemplos de operaciones comunes en tuplas:
+### Ejemplos de operaciones comunes en tuplas:
 
 - Acceder a elementos por índice: mi_tupla[0] devuelve el primer elemento.
 - Longitud de la tupla: len(mi_tupla) devuelve la cantidad de elementos en la tupla.
@@ -225,7 +225,7 @@ En Python, un diccionario es una estructura de datos que permite almacenar pares
 mi_diccionario = {"nombre": "Juan", "edad": 30, "ciudad": "Nueva York"}
 ```
 
-Características clave de los diccionarios en Python:
+### Características clave de los diccionarios en Python:
 
 1. **Asociación** de clave-valor: Los elementos en un diccionario se almacenan como pares clave-valor, donde cada clave es única y está asociada con un valor.
 
@@ -237,7 +237,7 @@ Características clave de los diccionarios en Python:
 
 1. **Valores heterogéneos**: Los valores de un diccionario pueden ser de cualquier tipo, incluyendo listas, tuplas, otros diccionarios o incluso funciones.
 
-Ejemplos de operaciones comunes en diccionarios:
+### Ejemplos de operaciones comunes en diccionarios:
 
 - Acceder a un valor por clave: `mi_diccionario["nombre"]` devuelve "Juan".
 - Modificar un valor: `mi_diccionario["edad"]` = 31 actualiza la edad a 31.
@@ -247,3 +247,30 @@ Ejemplos de operaciones comunes en diccionarios:
 - Obtener una lista de claves o valores: claves = `mi_diccionario.keys()` y valores = `mi_diccionario.values()`.
 
 Los diccionarios son una estructura de datos fundamental y versátil en Python, y se utilizan ampliamente para almacenar y recuperar datos con rapidez y facilidad. Son especialmente útiles cuando necesitas asociar datos con etiquetas o nombres descriptivos.
+
+## Conjuntos (Sets)
+
+En Python, un conjunto (set) es una estructura de datos que representa una colección desordenada de elementos únicos. Los conjuntos se utilizan para realizar operaciones de conjunto, como unión, intersección y diferencia, y son ideales para eliminar elementos duplicados de una secuencia. Los conjuntos se definen utilizando llaves {} o la función set(). Aquí tienes un ejemplo de un conjunto:
+
+```py
+mi_conjunto = {1, 2, 3, 4, 5}
+```
+
+### Características clave de los conjuntos en Python:
+
+- **Elementos únicos**: Los conjuntos no pueden contener elementos duplicados; cada elemento es único en el conjunto.
+
+- **Desordenados**: Los elementos en un conjunto no tienen un orden específico, por lo que no puedes acceder a ellos por índice.
+
+- **Mutables**: Los conjuntos son estructuras de datos mutables, lo que significa que puedes agregar o eliminar elementos después de crear el conjunto.
+
+### Ejemplos de operaciones comunes en conjuntos:
+
+- Agregar elementos: mi_conjunto.add(6) agrega el elemento 6 al conjunto.
+- Eliminar elementos: mi_conjunto.remove(3) elimina el elemento 3 del conjunto.
+- Unión de conjuntos: union_set = mi_conjunto.union(otro_conjunto) crea un nuevo conjunto que contiene la unión de dos conjuntos.
+- Intersección de conjuntos: interseccion_set = mi_conjunto.intersection(otro_conjunto) crea un nuevo conjunto que contiene la intersección de dos conjuntos.
+- Diferencia de conjuntos: diferencia_set = mi_conjunto.difference(otro_conjunto) crea un nuevo conjunto que contiene la diferencia entre dos conjuntos.
+- Comprobación de membresía: elemento in mi_conjunto devuelve True si el elemento está en el conjunto.
+- Longitud del conjunto: _len(mi_conjunto)_ devuelve la cantidad de elementos en el conjunto.
+  Los conjuntos son particularmente útiles cuando necesitas mantener una colección de elementos únicos y realizar operaciones matemáticas de conjuntos en ellos. También son eficientes para eliminar duplicados de listas u otras secuencias. Sin embargo, ten en cuenta que los elementos de un conjunto deben ser inmutables (como números, cadenas o tuplas) porque los conjuntos mismos son mutables.
