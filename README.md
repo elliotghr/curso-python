@@ -273,4 +273,44 @@ mi_conjunto = {1, 2, 3, 4, 5}
 - Diferencia de conjuntos: diferencia_set = mi_conjunto.difference(otro_conjunto) crea un nuevo conjunto que contiene la diferencia entre dos conjuntos.
 - Comprobación de membresía: elemento in mi_conjunto devuelve True si el elemento está en el conjunto.
 - Longitud del conjunto: _len(mi_conjunto)_ devuelve la cantidad de elementos en el conjunto.
-  Los conjuntos son particularmente útiles cuando necesitas mantener una colección de elementos únicos y realizar operaciones matemáticas de conjuntos en ellos. También son eficientes para eliminar duplicados de listas u otras secuencias. Sin embargo, ten en cuenta que los elementos de un conjunto deben ser inmutables (como números, cadenas o tuplas) porque los conjuntos mismos son mutables.
+
+Los conjuntos son particularmente útiles cuando necesitas mantener una colección de elementos únicos y realizar operaciones matemáticas de conjuntos en ellos. También son eficientes para eliminar duplicados de listas u otras secuencias. Sin embargo, ten en cuenta que los elementos de un conjunto deben ser inmutables (como números, cadenas o tuplas) porque los conjuntos mismos son mutables.
+
+## Parametros y argumentos
+
+En Python, los términos "parámetros" y "argumentos" se utilizan en el contexto de funciones para referirse a valores que se pasan a una función. Estos términos tienen significados específicos:
+
+**Parámetros:**
+
+- Los parámetros son nombres de variables que se definen en la declaración de una función y se utilizan para recibir valores o argumentos cuando se llama a la función.
+
+- Los parámetros se colocan entre los paréntesis de la definición de la función y se utilizan para especificar qué valores debe recibir la función cuando se llama.
+
+- Los parámetros actúan como marcadores de posición para los valores que se pasan a la función.
+
+**Ejemplo de definición de función con parámetros:**
+
+```py
+def saludar(nombre):
+    print(f"Hola, {nombre}!")
+```
+
+En este caso, nombre es un parámetro de la función saludar.
+
+**Argumentos:**
+
+- Los argumentos son los valores reales que se pasan a una función cuando se la llama.
+
+- Los argumentos se utilizan para proporcionar valores concretos que deben coincidir con los parámetros definidos en la función.
+
+- Cuando se llama a una función, los argumentos se pasan entre los paréntesis de la llamada y se asignan a los parámetros de la función en el orden en que se pasan.
+
+**Ejemplo de llamada a función con argumentos:**
+
+```py
+saludar("Juan")
+```
+
+En este caso, "Juan" es un argumento que se pasa a la función saludar, y se asigna al parámetro nombre.
+
+Es importante entender la diferencia entre parámetros y argumentos, ya que los parámetros son simplemente nombres de variables en la definición de la función, mientras que los argumentos son los valores que se pasan a la función cuando se llama.
