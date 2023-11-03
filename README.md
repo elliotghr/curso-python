@@ -314,3 +314,106 @@ saludar("Juan")
 En este caso, "Juan" es un argumento que se pasa a la función saludar, y se asigna al parámetro nombre.
 
 Es importante entender la diferencia entre parámetros y argumentos, ya que los parámetros son simplemente nombres de variables en la definición de la función, mientras que los argumentos son los valores que se pasan a la función cuando se llama.
+
+## Init
+
+`__init__` es un método especial en Python que se utiliza para inicializar objetos de una clase. Es parte de lo que se conoce como el "constructor" de la clase. Cuando se crea una instancia de una clase (es decir, se crea un objeto basado en esa clase), el método `__init__`  se llama automáticamente para realizar cualquier inicialización requerida.
+
+Aquí hay un ejemplo básico para ilustrar cómo se utiliza `__init__` :
+
+```py
+class Persona:
+    def __init__(self, nombre, edad):
+        self.nombre = nombre
+        self.edad = edad
+
+    def presentarse(self):
+        print(f"Soy {self.nombre} y tengo {self.edad} años.")
+# Crear una instancia u objeto de la clase Persona
+persona1 = Persona("Juan", 30)
+
+# Llamar al método presentarse de la instancia persona1
+persona1.presentarse()
+```
+En este ejemplo, `__init__` toma tres parámetros: `self` (que hace referencia a la instancia misma), nombre y edad. Dentro de `__init__`, se definen atributos de la instancia (`self`.nombre y `self`.edad) que se inicializan con los valores pasados al crear una nueva instancia de la clase Persona.
+
+Cuando se crea la instancia persona1 de la clase Persona, se pasan los valores "Juan" y 30 como argumentos. El método `__init__` se ejecuta automáticamente, estableciendo `self`.nombre en "Juan" y `self.edad` en 30 para el objeto persona1.
+
+Este método es comúnmente utilizado para realizar tareas de inicialización, como la asignación de valores predeterminados a las propiedades de un objeto.
+
+## Del
+
+`__del__`, es otro método especial en Python que se utiliza como el "destructor" de una clase. Mientras que `__init__` se encarga de la inicialización, `__del__` se utiliza para realizar las tareas de limpieza o liberación de recursos cuando un objeto ya no es necesario y está a punto de ser destruido o eliminado.
+
+Sin embargo, el uso de `__del__` no es tan común como `__init__`, ya que en Python el recolector de basura (_`garbage collector`_) se encarga de la eliminación automática de objetos cuando ya no se hace referencia a ellos. Aún así, `__del__` se puede utilizar para liberar recursos que no son manejados automáticamente por el recolector de basura, como por ejemplo, cerrar archivos, conexiones a bases de datos, o liberar otros recursos externos.
+
+Aquí hay un ejemplo sencillo que ilustra el uso de `__del__`:
+
+```python
+class MiClase:
+    def __init__(self):
+        print("Se ha creado un objeto")
+
+    def __del__(self):
+        print("Se está eliminando un objeto")
+
+# Crear una instancia de la clase MiClase
+objeto = MiClase()
+
+# Eliminar la referencia al objeto (esto no garantiza que el método __del__ se ejecute inmediatamente)
+del objeto
+```
+
+En este ejemplo, al crear una instancia de `MiClase`, se imprime "Se ha creado un objeto". Luego, al eliminar la referencia al objeto mediante del objeto, se llama al método `__del__`, imprimiendo "Se está eliminando un objeto".
+
+Es importante tener en cuenta que la ejecución de `__del__` no está garantizada en un momento específico, ya que depende del funcionamiento del recolector de basura de Python. Por lo tanto, no se debe confiar en `__del__` para la liberación de recursos críticos, y es preferible utilizar otros métodos más seguros para la gestión de recursos, como el uso de context managers (`with statement`) para garantizar la liberación de recursos al finalizar su uso.
+
+## `With`
+
+El `with` statement en Python se utiliza para trabajar con recursos que necesitan ser inicializados o limpiados de manera adecuada, como archivos abiertos, conexiones a bases de datos, sockets de red, entre otros. Este enunciado asegura que los recursos se liberen correctamente una vez que se complete su uso, incluso si ocurren excepciones durante el proceso.
+
+El `with` statement se asegura de que los recursos sean liberados utilizando dos métodos especiales: `__enter__` y `__exit__`. Estos métodos son parte de un protocolo conocido como el "_context manager protocol_".
+
+Aquí hay un ejemplo de cómo se utiliza `with` para trabajar con un archivo:
+
+```python
+# Abrir un archivo utilizando `with` statement
+with open('archivo.txt', 'r') as archivo:
+    contenido = archivo.read()
+    # Hacer algo con el contenido del archivo
+
+# Una vez que se sale del bloque `with`, el archivo se cierra automáticamente
+# No es necesario llamar a archivo.close() explícitamente
+```
+
+En este ejemplo, open('archivo.txt', 'r') abre el archivo en modo lectura. El `with` statement se encarga de llamar a los métodos `__enter__` y `__exit__` implícitos en el contexto del archivo. Dentro del bloque `with`, puedes realizar operaciones con el archivo. Una vez que se sale del bloque `with`, el archivo se cierra automáticamente, independientemente de si ha habido excepciones o no.
+
+Para usar el `with` statement, el objeto con el que estás trabajando debe tener implementados los métodos `__enter__` y `__exit__`. Estos métodos definen lo que se debe hacer al entrar y salir del bloque `with`. Por ejemplo, para crear tu propio context manager, podrías definir una clase con estos métodos para administrar la inicialización y limpieza de recursos de manera controlada.
+
+El `with` statement es una forma más segura y legible de trabajar con recursos que necesitan ser liberados correctamente después de su uso, ya que garantiza que se realicen las operaciones de limpieza, incluso en presencia de excepciones.
+
+## str
+`__str__` es un método especial en Python que se utiliza para definir la representación de cadena de un objeto. Cuando se invoca la función `str()` en un objeto, o cuando se utiliza la función `print()` para mostrar el objeto, Python busca la implementación del método `__str__` en la clase de ese objeto. Si se encuentra, `__str__` devuelve la representación de cadena del objeto.
+
+Aquí tienes un ejemplo simple de cómo usar `__str__`:
+
+```python
+class Persona:
+    def __init__(self, nombre, edad):
+        self.nombre = nombre
+        self.edad = edad
+
+    def __str__(self):
+        return f"Nombre: {self.nombre}, Edad: {self.edad}"
+
+# Crear una instancia de la clase Persona
+persona = Persona("Ana", 25)
+
+# Imprimir la representación de cadena del objeto usando print()
+print(persona)  # Esto llama a persona.`__str__`()
+```
+
+En este caso, la clase Persona tiene un método `__str__` definido. Cuando se llama print(persona), en realidad se está invocando persona.`__str__()` automáticamente para obtener la representación de cadena del objeto persona.
+
+La implementación de `__str__` te permite definir cómo quieres que tu objeto se represente como una cadena. Esto es útil para personalizar la salida al imprimir objetos, lo que puede ser útil para la depuración y la presentación de objetos en un formato legible para los humanos.
+
